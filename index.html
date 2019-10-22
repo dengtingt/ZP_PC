@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>招聘网</title>
+	<link rel="stylesheet" href="./css/index.css">
+	<link rel="stylesheet" href="./css/common.css">
+	<link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1431145_p0smvz4vi6f.css">
+	<link href="https://cdn.bootcss.com/font-awesome/5.10.2/css/all.min.css" rel="stylesheet">
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.js"></script>
+	<script src="./js/index.js"></script>
+	<!-- 加载是分顺序的，从上而下，先加载完jQuery，你才能用它 -->
+</head>
+<body>
+	<!-- 顶部 -->
+	<div class="top">
+		<div class="container">
+			<div class="top_content row">
+				<div class="left col-2">
+					<ul>
+						<li>北京</li>
+						<a href="javascript:void(0)">[切换城市]</a>
+					</ul>
+				</div>
+				<div class="right col-10 text-right">
+					<ul>
+						<li>登录 / 注册</li>
+						<li>个人中心<i class="fa fa-chevron-down ml-1"></i></li>
+						<li>商家中心<i class="fa fa-chevron-down ml-1"></i></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /顶部 -->
+
+
+	<!-- 容器 -->
+	<div class="container">
+
+		<!-- 头部 -->
+		<div class="header_content row mx-0">
+			<div class="logo col-4 pl-0">
+				<img src="./images/logo.png" alt="">
+			</div>
+			<div class="search col-6">
+				<div class="input">
+					<i class="iconfont icon-search"></i>
+					<input type="text">
+				</div>
+				<div id="sousuo">搜职位</div>
+				<div class="key">
+					<ul class="col-12 text-left">
+						<li>收营员</li>
+						<li>理货员</li>
+						<li>服务员</li>
+						<li>店员</li>
+						<li>营业员</li>
+					</ul>
+				</div>
+			</div>
+			<div class="btn col-2 d-flex align-items-center">
+				<button class="btn btn-warning btn-lg">
+					<i class="fa fa-info-circle mr-1"></i>发布招聘
+				</button>
+			</div>
+		</div>
+		<!-- /头部 -->
+
+
+		<!-- 栏目 -->
+		<div class="category">
+			<div class="category_content">
+				<div id="alljob">
+					职位：<span>全部</span>
+					<ul>
+						
+					</ul>
+				</div>
+				<div id="allcity">
+					地点：<span>不限</span>
+					<ul>
+						
+					</ul>
+				</div>
+				<div id="allwelfare">
+					福利：<span>不限</span>
+				</div>
+			</div>
+		</div>
+		<!-- /栏目 -->
+
+
+		<!-- 招聘信息 -->
+		<div class="employment">
+			
+		</div>
+		<!-- /招聘信息 -->
+
+	</div>
+	<!-- /容器 -->
+
+
+	<!-- 模态框 -->
+	<div class="modal fade" id="applyModal" tabindex="-1">
+	  	<div class="modal-dialog modal-lg" role="document">
+	    	<div class="modal-content">
+	      		<div class="modal-header">
+	        		<h5 class="modal-title" id="exampleModalLabel">快速报名</h5>
+	        		<button type="button" class="close" onclick="closeApplyModal()">
+	          			<span>&times;</span>
+	        		</button>
+	      		</div>
+	      		<div class="modal-body">
+	  				<!-- 表单 -->
+					<form action="/register" id="apply_form">
+						<input type="hidden" name="id">
+						<!-- 招聘Id -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_employmentId">招聘Id：</label>
+							</div>
+							<div class="col-9">
+								<input id="input_employmentId" name="employmentId" type="text" class="form-control">
+							</div>
+						</div>
+						<!-- /招聘Id -->
+						<!-- 姓名 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_realname">姓&nbsp;&nbsp;名：</label>
+							</div>
+							<div class="col-9">
+								<input id="input_realname" name="realname" type="text" class="form-control" placeholder="请输入2-4个汉字">
+							</div>
+						</div>
+						<!-- /姓名 -->
+				
+						<!-- 性别 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_gender">性&nbsp;&nbsp;别：</label>
+							</div>
+							<div class="col-9">
+								<input id="gender_male" type="radio" name="gender" value="male">男&nbsp;
+								<input id="gender_female" type="radio" name="gender" value="female">女
+							</div>
+						</div>
+						<!-- / 性别 -->
+
+						<!-- 出生年份 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_birth">出生年份：</label>
+							</div>
+							<div class="col-9">
+								<select id="input_birth" name="birth" class="form-control" placeholder="请选择出生年份">
+									<option value="">1990</option>
+									<option value="">1991</option>
+									<option value="">1992</option>
+									<option value="">1993</option>
+									<option value="">1994</option>
+									<option value="">1995</option>
+									<option value="">1996</option>
+									<option value="">1997</option>
+									<option value="">1998</option>
+									<option value="">1999</option>
+								</select>
+							</div>
+						</div>
+						<!-- / 出生年份 -->
+
+						<!-- 最高学历 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_education">最高学历：</label>
+							</div>
+							<div class="col-9">
+								<select id="input_education" name="education" class="form-control" placeholder="请选择学历">
+									<option value="">小学</option>
+									<option value="">初中</option>
+									<option value="">高中</option>
+									<option value="">专科</option>
+									<option value="">本科</option>
+									<option value="">硕士</option>
+									<option value="">博士</option>
+								</select>
+							</div>
+						</div>
+						<!-- / 最高学历 -->
+
+						<!-- 手机号 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_telephone">手机号：</label>
+							</div>
+							<div class="col-9">
+								<input id="input_telephone" name="telephone" type="text" class="form-control" placeholder="请输入手机号">
+							</div>
+						</div>
+						<!-- / 手机号 -->
+
+						<!-- 工作时间 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_workTime">工作时间：</label>
+							</div>
+							<div class="col-9">
+								<input id="input_workTime" name="workTime" type="text" class="form-control" placeholder="请输入您的工作经历">
+							</div>
+						</div>
+						<!-- / 工作时间 -->
+
+						<!-- 目前现状 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_currentStatus">目前现状：</label>
+							</div>
+							<div class="col-9">
+								<input id="input_currentStatus" name="currentStatus" type="text" class="form-control" placeholder="请输入您目前的就业状况">
+							</div>
+						</div>
+						<!-- / 目前现状 -->
+
+						<!-- 简历 -->
+						<div class="form-group row">
+							<div class="col-2 text-right">
+								<label for="input_resume">简&nbsp;&nbsp;历：</label>
+							</div>
+							<div class="col-9">
+								<textarea id="input_resume" name="resume" type="text" class="form-control" placeholder="请输入您的简历"></textarea>
+							</div>
+						</div>
+						<!-- / 简历 -->
+
+					</form>
+					<!-- / 表单 -->     
+
+	      		</div>
+	      		<div class="modal-footer">
+	        		<button type="button" class="btn btn-secondary" onclick="closeApplyModal()">取消</button>
+	       		 	<button type="button" class="btn btn-primary" id="save">确认报名</button>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>
+	<!-- /模态框 -->
+</body>
+</html>
